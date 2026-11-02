@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>needle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    needle
+    <script type="module">
+        import { Needle } from "/compass.mjs";
+
+        const app = new Needle();
+
+        app.on('open', () => { console.log('open') })
+        app.on('close', () => { console.log('closed')})
+        app.on('connecting', () => { console.log('connecting')})
+        app.on('error', (event) => { console.log(event) })
+
+       // app.connect()
+
+        btn.onclick=() => {app.connect()}
+        btn2.onclick=() => {app.send(JSON.stringify({dest:'needle', msg: msg.value}))}
+    </script>
+    <button id="btn">connect</button><input id="msg">
+    <button id="btn2">send</button>
+</body>
+
+</html>
